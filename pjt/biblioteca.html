@@ -1,0 +1,288 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Abyss Games - Biblioteca</title>
+
+    <style>
+        body {
+            background-image: url('https://i.pinimg.com/1200x/80/3c/c2/803cc24726e912cfdcf79e9b80a60ff0.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            color: white;
+            font-family: Arial, sans-serif;
+            margin: 0;
+        }
+
+        
+        header {
+            background-color: rgba(155, 29, 29, 0.95);
+            padding: 15px;
+        }
+
+        header h1 {
+            margin-top: 0;
+        }
+
+        
+        nav a {
+            color: white;
+            margin-right: 15px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: #ff4444;
+        }
+
+        
+        main {
+            padding: 10px 0;
+        }
+
+        main > h2,
+        main > p {
+            margin-left: 2.5%;
+        }
+
+        h2 {
+            text-shadow: 2px 2px 4px black;
+        }
+
+        
+        .biblioteca {
+            display: grid;
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+            gap: 25px;
+            width: 95%;
+            margin: 20px auto;
+            overflow: visible;
+        }
+
+        
+        .jogo {
+            background-color: rgba(0, 0, 0, 0.9);
+            padding: 15px;
+            border-radius: 8px;
+            border: 3px solid transparent;
+            box-sizing: border-box;
+            position: relative;
+            transition: transform 0.3s ease,
+                        border-color 0.3s ease;
+            min-width: 0;
+        }
+
+        
+        .jogo:hover {
+            transform: scale(1.04);
+            border-color: red;
+            z-index: 10;
+            cursor: pointer;
+        }
+
+        
+        .jogo img {
+            width: 100%;
+            height: 280px;
+            object-fit: contain;
+            display: block;
+        }
+
+        .jogo h3 {
+            text-align: center;
+            color: white;
+            font-size: 17px;
+        }
+
+        .jogo p {
+            text-align: center;
+            color: rgb(180, 180, 180);
+            font-size: 14px;
+        }
+
+        
+        .jogo button {
+            display: block;
+            margin: 12px auto 0;
+            padding: 10px 16px;
+            background-color: #9b1d1d;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .jogo button:hover {
+            background-color: #d32f2f;
+        }
+
+        
+        footer {
+            text-align: center;
+            background-color: rgba(0, 0, 0, 0.8);
+            padding: 10px;
+            margin-top: 30px;
+        }
+
+        
+        @media (max-width: 800px) {
+            .biblioteca {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+                gap: 15px;
+            }
+
+            .jogo img {
+                height: 220px;
+            }
+        }
+
+        @media (max-width: 400px) {
+            .biblioteca {
+                grid-template-columns: 1fr;
+            }
+
+            .jogo {
+                padding: 8px;
+            }
+
+            .jogo img {
+                height: 220px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    
+    <header>
+        <h1>Abyss Games - O seu universo gamer</h1>
+
+        <nav>
+            <a href="principal.html">Início</a>
+            <a href="reviews.html">Reviews</a>
+            <a href="biblioteca.html">Biblioteca</a>
+        </nav>
+    </header>
+
+    <main>
+
+        <h2>Minha biblioteca de jogos</h2>
+        <p>Todos os seus jogos favoritos em um só lugar!</p>
+
+        <div class="biblioteca">
+
+            
+            <div class="jogo">
+                <img
+                    src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRO2W8En0PnYWR7dLBfzfwEubKFAyex06MHa-knjFmqag&s=10"
+                    alt="Subway Surfers">
+
+                <h3>Subway Surfers</h3>
+                <p>Corrida infinita • Ação</p>
+
+                <button onclick="window.open('https://poki.com/br/g/subway-surfers', '_blank')">
+                    Jogue agora
+                </button>
+            </div>
+
+            
+            <div class="jogo">
+                <img
+                    src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS6Q8V8l16Icv6tYkti1hhW8SM8GsziYs05V9MTYtvMsQ&s=10"
+                    alt="Final Ninja">
+
+                <h3>Final Ninja</h3>
+                <p>Ação • Aventura</p>
+
+                <button onclick="window.open('https://poki.com/br/g/final-ninja-html5', '_blank')">
+                    Jogue agora
+                </button>
+            </div>
+
+            
+            <div class="jogo">
+                <img
+                    src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTArhNxJlGnHOJe0rdJ6H3eK34DP7ZFboC5IdBtbCnB9A&s=10"
+                    alt="Level Devil">
+
+                <h3>Level Devil</h3>
+                <p>Plataforma • Pegadinhas</p>
+
+                <button onclick="window.open('https://poki.com/br/g/level-devil', '_blank')">
+                    Jogue agora
+                </button>
+            </div>
+
+            
+            <div class="jogo">
+                <img
+                    src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS7A1vrKCuJ0GGY2-DjQ5VwiMOQJ-sttNFnw-n_UZUkKg&s=10"
+                    alt="Extreme Pamplona">
+
+                <h3>Extreme Pamplona</h3>
+                <p>Ação • Corrida</p>
+
+                <button onclick="window.open('https://www.crazygames.com/br/game/extreme-pamplona', '_blank')">
+                    Jogue agora
+                </button>
+            </div>
+
+            
+            <div class="jogo" onclick="window.location.href='HollowKnight.html'">
+                <img
+                    src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRTNDy_qEjxOtaJOzD-i4j-m-ivSUoaBfezfD5k5gJi7A&s=10"
+                    alt="Hollow Knight">
+
+                <h3>Hollow Knight</h3>
+                <p>Metroidvania • Indie</p>
+            </div>
+
+            
+            <div class="jogo" onclick="window.location.href='SpiderMan.html'">
+                <img
+                    src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTdMsD79duM9kVLbpCGMSLGQArlWpPG3JpXpVtQNaFXfg&s=10"
+                    alt="Marvel's Spider-Man">
+
+                <h3>Marvel's Spider-Man</h3>
+                <p>Ação • Super-herói</p>
+            </div>
+
+            
+            <div class="jogo" onclick="window.location.href='TheLastOfUs.html'">
+                <img
+                    src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSqnCaZSBPQMEbqaApGoNP-q4Zrf0XYsCOgGRJkc_Utwg&s=10"
+                    alt="The Last of Us">
+
+                <h3>The Last of Us</h3>
+                <p>Ação • Sobrevivência</p>
+            </div>
+
+            
+            <div class="jogo" onclick="window.location.href='GodOfWar.html'">
+                <img
+                    src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRy-MktC8zS_iLO4uStoUSz-KXkG54VzyqTLFutBDPNxw&s=10"
+                    alt="God of War">
+
+                <h3>God of War</h3>
+                <p>Ação • Mitologia</p>
+            </div>
+
+        </div>
+
+    </main>
+
+    <footer>
+        <p>Abyss Games © 2026</p>
+    </footer>
+
+</body>
+</html>

@@ -1,0 +1,423 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>God of War - Abyss Games</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            color: white;
+            background-color: #100d12;
+            background-image:
+                linear-gradient(rgba(16, 13, 18, 0.85), rgba(16, 13, 18, 0.95)),
+                url('https://i.pinimg.com/736x/df/03/dc/df03dc55f8299e4d6e68c026f6bc1544.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+
+        /* BANNER DE NAVEGAÇÃO */
+        header {
+            background: rgba(110, 15, 20, 0.96);
+            padding: 20px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 28px;
+            color: white;
+        }
+
+        nav {
+            display: flex;
+            gap: 25px;
+            flex-wrap: wrap;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-size: 16px;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: #ff7777;
+        }
+
+        main {
+            width: 90%;
+            max-width: 1200px;
+            margin: 35px auto;
+        }
+
+        .caminho {
+            color: #c8c0ca;
+            margin-bottom: 20px;
+            font-size: 14px;
+        }
+
+        .caminho a {
+            color: #ff7777;
+            text-decoration: none;
+        }
+
+        .produto {
+            display: grid;
+            grid-template-columns: 300px minmax(0, 1fr);
+            gap: 30px;
+            background-image:
+                linear-gradient(rgba(16, 13, 18, 0.35), rgba(16, 13, 18, 0.85)),
+                url('fundo-godofwar.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            padding: 25px;
+            border: 1px solid #39313c;
+            border-radius: 10px;
+        }
+
+        .capa {
+            width: 100%;
+            border-radius: 7px;
+            display: block;
+        }
+
+        .informacoes h2 {
+            font-size: 36px;
+            margin: 0 0 12px;
+        }
+
+        .generos {
+            color: #c8c0ca;
+            margin-bottom: 20px;
+        }
+
+        .avaliacao {
+            background: rgba(0, 0, 0, 0.45);
+            padding: 15px;
+            border-radius: 7px;
+            margin-bottom: 20px;
+        }
+
+        .avaliacao strong {
+            color: #8fc7ff;
+            display: block;
+            margin-bottom: 7px;
+        }
+
+        .estrelas {
+            color: #ffd45c;
+            font-size: 20px;
+            margin-bottom: 5px;
+        }
+
+        .descricao {
+            line-height: 1.8;
+            color: #e0dbe2;
+        }
+
+        .etiquetas {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin: 20px 0;
+        }
+
+        .etiqueta {
+            background: rgba(150, 35, 45, 0.65);
+            color: white;
+            padding: 8px 12px;
+            border-radius: 5px;
+            font-size: 13px;
+        }
+
+        .botoes {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+            margin-top: 25px;
+        }
+
+        .botao {
+            display: inline-block;
+            background: #b51f2b;
+            color: white;
+            padding: 12px 18px;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background 0.3s;
+        }
+
+        .botao:hover {
+            background: #e02d3b;
+        }
+
+        .botao.secundario {
+            background: #302832;
+            border: 1px solid #514551;
+        }
+
+        .botao.secundario:hover {
+            background: #493b49;
+        }
+
+        .secao {
+            margin-top: 35px;
+        }
+
+        .secao h2 {
+            font-size: 25px;
+            border-bottom: 2px solid #9d202b;
+            padding-bottom: 12px;
+            margin-bottom: 20px;
+        }
+
+        .galeria {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 15px;
+        }
+
+        .galeria img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            border-radius: 7px;
+            border: 1px solid #39313c;
+            transition: transform 0.3s, border-color 0.3s;
+        }
+
+        .galeria img:hover {
+            transform: scale(1.04);
+            border-color: #d52b38;
+        }
+
+        .ficha {
+            background: rgba(25, 20, 28, 0.9);
+            border: 1px solid #39313c;
+            border-radius: 8px;
+            padding: 20px;
+        }
+
+        .linha {
+            display: grid;
+            grid-template-columns: 180px minmax(0, 1fr);
+            gap: 15px;
+            padding: 12px 0;
+            border-bottom: 1px solid #39313c;
+        }
+
+        .linha:last-child {
+            border-bottom: none;
+        }
+
+        .linha strong {
+            color: #c8aeb4;
+        }
+
+        footer {
+            margin-top: 50px;
+            padding: 25px;
+            text-align: center;
+            background: rgba(0, 0, 0, 0.45);
+            color: #aaa;
+        }
+
+        @media (max-width: 750px) {
+            header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            nav {
+                gap: 18px;
+            }
+
+            .produto {
+                grid-template-columns: 1fr;
+            }
+
+            .capa {
+                max-width: 350px;
+            }
+
+            .informacoes h2 {
+                font-size: 30px;
+            }
+
+            .galeria {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+
+            .galeria img {
+                height: 130px;
+            }
+
+            .linha {
+                grid-template-columns: 1fr;
+                gap: 5px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <h1>Abyss Games</h1>
+
+        <nav>
+            <a href="principal.html">Início</a>
+            <a href="reviews.html">Reviews</a>
+            <a href="biblioteca.html">Biblioteca</a>
+        </nav>
+    </header>
+
+    <main>
+
+        <div class="caminho">
+            <a href="#">Início</a> &gt; <a href="#">Biblioteca</a> &gt; God of War
+        </div>
+
+        <section class="produto">
+
+            <div>
+                <img
+                    class="capa"
+                    src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1593500/header.jpg"
+                    alt="Capa de God of War"
+                >
+            </div>
+
+            <div class="informacoes">
+                <h2>God of War</h2>
+
+                <div class="generos">
+                    Ação • Aventura • Mitologia • RPG
+                </div>
+
+                <div class="avaliacao">
+                    <strong>Extremamente positivas</strong>
+                    <div class="estrelas">★★★★★</div>
+                    Um dos jogos de ação e aventura mais elogiados.
+                </div>
+
+                <p class="descricao">
+                    Vivencie uma nova jornada com Kratos, o antigo deus da guerra,
+                    que agora vive no mundo da mitologia nórdica. Ao lado de seu
+                    filho Atreus, ele precisa atravessar terras perigosas, enfrentar
+                    criaturas lendárias e aprender a lidar com os desafios da
+                    paternidade. Uma aventura marcada por combates intensos,
+                    exploração e uma história emocionante.
+                </p>
+
+                <div class="etiquetas">
+                    <span class="etiqueta">Um jogador</span>
+                    <span class="etiqueta">Mitologia nórdica</span>
+                    <span class="etiqueta">Combate</span>
+                    <span class="etiqueta">Exploração</span>
+                    <span class="etiqueta">História</span>
+                </div>
+
+                <div class="botoes">
+                    <a
+                        class="botao"
+                        href="https://store.steampowered.com/app/1593500/God_of_War/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        Ver na Steam
+                    </a>
+
+                    <a class="botao secundario" href="#">
+                        Voltar à biblioteca
+                    </a>
+                </div>
+            </div>
+
+        </section>
+
+        <section class="secao">
+            <h2>Imagens do jogo</h2>
+
+            <div class="galeria">
+                <img
+                    src="https://i.pinimg.com/1200x/83/a0/61/83a0611b7dffe9a845b371161da4a6ca.jpg"
+                    alt="Cena de God of War"
+                >
+
+                <img
+                    src="https://i.pinimg.com/1200x/28/43/23/284323fe93732119d7781be044390d1d.jpg"
+                    alt="Combate em God of War"
+                >
+
+                <img
+                    src="https://i.pinimg.com/1200x/ea/4d/7f/ea4d7f7a0060d66e79ceaa5fcc6011b7.jpg"
+                    alt="Exploração em God of War"
+                >
+            </div>
+        </section>
+
+        <section class="secao">
+            <h2>Sobre esse jogo</h2>
+
+            <div class="ficha">
+                <div class="linha">
+                    <strong>Desenvolvedora</strong>
+                    <span>Santa Monica Studio</span>
+                </div>
+
+                <div class="linha">
+                    <strong>Versão para PC</strong>
+                    <span>Jetpack Interactive</span>
+                </div>
+
+                <div class="linha">
+                    <strong>Publicadora</strong>
+                    <span>PlayStation Publishing LLC</span>
+                </div>
+
+                <div class="linha">
+                    <strong>Lançamento original</strong>
+                    <span>20 de abril de 2018</span>
+                </div>
+
+                <div class="linha">
+                    <strong>Lançamento para PC</strong>
+                    <span>14 de janeiro de 2022</span>
+                </div>
+
+                <div class="linha">
+                    <strong>Gêneros</strong>
+                    <span>Ação, aventura e RPG</span>
+                </div>
+
+                <div class="linha">
+                    <strong>Plataformas</strong>
+                    <span>PlayStation 4, PlayStation 5 e PC</span>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <p>Abyss Games © 2026 — Seu universo gamer.</p>
+    </footer>
+
+</body>
+</html>

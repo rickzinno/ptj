@@ -1,0 +1,473 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Abyss Games - The Last of Us</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #100d12;
+            background-image:
+                linear-gradient(rgba(10, 5, 10, 0.65), rgba(10, 5, 10, 0.94)),
+                url('https://i.pinimg.com/736x/df/03/dc/df03dc55f8299e4d6e68c026f6bc1544.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            color: white;
+            font-family: Arial, sans-serif;
+            margin: 0;
+        }
+
+        /* Cabeçalho */
+        header {
+            background-color: rgba(110, 15, 20, 0.96);
+            padding: 18px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        header h1 {
+            font-size: 25px;
+            margin: 0;
+        }
+
+        header h1 span {
+            color: #ff5b5b;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin-right: 18px;
+            font-weight: bold;
+        }
+
+        nav a:hover {
+            color: #ff5555;
+        }
+
+        /* Conteúdo */
+        main {
+            width: 90%;
+            max-width: 1200px;
+            margin: 35px auto;
+        }
+
+        .caminho {
+            color: #bbb;
+            font-size: 14px;
+            margin-bottom: 20px;
+        }
+
+        .caminho a {
+            color: #ff6969;
+            text-decoration: none;
+        }
+
+        /* Área principal do jogo */
+        .produto {
+            display: grid;
+            grid-template-columns: 380px minmax(0, 1fr);
+            gap: 20px;
+
+            background-color: rgba(12, 10, 15, 0.94);
+            background-image:
+                linear-gradient(
+                    rgba(12, 8, 14, 0.48),
+                    rgba(12, 8, 14, 0.80)
+                ),
+                url('fundo-lastofus.jpg');
+
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+
+            padding: 18px;
+            border: 1px solid #39313c;
+            border-radius: 10px;
+        }
+
+        /* Capa */
+        .capa img {
+            width: 100%;
+            display: block;
+            border-radius: 7px;
+        }
+
+        .capa p {
+            color: #ddd;
+            font-size: 13px;
+            text-align: center;
+        }
+
+        /* Informações */
+        .informacoes h2 {
+            font-size: 36px;
+            margin: 0 0 10px;
+        }
+
+        .generos {
+            color: #d0c7d0;
+            margin-bottom: 20px;
+        }
+
+        .avaliacao {
+            background-color: rgba(32, 28, 37, 0.92);
+            padding: 15px;
+            border-radius: 7px;
+            margin-bottom: 22px;
+        }
+
+        .avaliacao strong {
+            color: #83caff;
+            font-size: 20px;
+        }
+
+        .estrelas {
+            color: #ffc94a;
+            font-size: 23px;
+            letter-spacing: 2px;
+        }
+
+        .avaliacao p {
+            color: #c9c9c9;
+            font-size: 14px;
+            margin-bottom: 0;
+        }
+
+        .descricao {
+            color: #f0eaf0;
+            line-height: 1.8;
+            font-size: 16px;
+            text-shadow: 1px 1px 3px #000;
+        }
+
+        /* Etiquetas */
+        .etiquetas {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin: 20px 0;
+        }
+
+        .etiquetas span {
+            background-color: rgba(52, 37, 48, 0.95);
+            color: #ffbaba;
+            padding: 8px 12px;
+            border-radius: 5px;
+            font-size: 13px;
+        }
+
+        /* Botões */
+        .botoes {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-top: 25px;
+        }
+
+        .botao {
+            display: inline-block;
+            background-color: #a51e26;
+            color: white;
+            padding: 14px 22px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .botao:hover {
+            background-color: #d52d38;
+            transform: translateY(-2px);
+        }
+
+        .botao-secundario {
+            background-color: #302832;
+        }
+
+        .botao-secundario:hover {
+            background-color: #49404c;
+        }
+
+        /* Galeria */
+        .secao {
+            margin-top: 35px;
+        }
+
+        .secao h2 {
+            border-left: 4px solid #c32932;
+            padding-left: 12px;
+            font-size: 23px;
+        }
+
+        .galeria {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 15px;
+        }
+
+        .galeria img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            border-radius: 7px;
+            border: 1px solid #514451;
+            transition: 0.3s;
+        }
+
+        .galeria img:hover {
+            transform: scale(1.03);
+            border-color: #ff4444;
+        }
+
+        /* Ficha técnica */
+        .ficha {
+            background-color: rgba(12, 10, 15, 0.94);
+            border: 1px solid #39313c;
+            border-radius: 8px;
+            padding: 20px;
+        }
+
+        .linha {
+            display: flex;
+            justify-content: space-between;
+            gap: 20px;
+            padding: 13px 0;
+            border-bottom: 1px solid #39313c;
+        }
+
+        .linha:last-child {
+            border-bottom: none;
+        }
+
+        .linha span:first-child {
+            color: #aaa;
+        }
+
+        .linha span:last-child {
+            text-align: right;
+        }
+
+        /* Rodapé */
+        footer {
+            text-align: center;
+            background-color: rgba(0, 0, 0, 0.85);
+            color: #aaa;
+            padding: 20px;
+            margin-top: 50px;
+        }
+
+        /* Celulares e tablets */
+        @media (max-width: 750px) {
+            header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            nav a {
+                display: inline-block;
+                margin: 8px 12px 0 0;
+            }
+
+            main {
+                width: 94%;
+                margin-top: 20px;
+            }
+
+            .produto {
+                grid-template-columns: 1fr;
+                padding: 17px;
+            }
+
+            .capa {
+                max-width: 380px;
+                width: 100%;
+                margin: auto;
+            }
+
+            .informacoes h2 {
+                font-size: 29px;
+            }
+
+            .galeria {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+
+            .galeria img {
+                height: 130px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <h1>Abyss <span>Games</span></h1>
+
+        <nav>
+            <a href="principal.html">Início</a>
+            <a href="reviews.html">Reviews</a>
+            <a href="biblioteca.html">Biblioteca</a>
+        </nav>
+    </header>
+
+    <main>
+
+        <div class="caminho">
+            <a href="biblioteca.html">Biblioteca</a>
+            &gt; Jogos
+            &gt; The Last of Us
+        </div>
+
+        <!-- Informações principais do jogo -->
+        <section class="produto">
+
+            <div class="capa">
+                <img
+                    src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1888930/header.jpg"
+                    alt="Capa de The Last of Us Part I">
+
+                <p>Imagem da página do jogo na Steam</p>
+            </div>
+
+            <div class="informacoes">
+
+                <h2>The Last of Us Part I</h2>
+
+                <div class="generos">
+                    Ação • Aventura • Sobrevivência • História
+                </div>
+
+                <div class="avaliacao">
+                    <div class="estrelas">★★★★★</div>
+
+                    <strong>Aventura emocionante</strong>
+
+                    <p>
+                        Uma jornada narrativa intensa em um mundo
+                        devastado por uma pandemia.
+                    </p>
+                </div>
+
+                <h3>Sobre este jogo</h3>
+
+                <p class="descricao">
+                    The Last of Us Part I acompanha Joel e Ellie
+                    em uma perigosa jornada por uma versão dos
+                    Estados Unidos devastada por uma infecção.
+                    Em meio a cidades abandonadas e grupos hostis,
+                    os dois precisam aprender a confiar um no outro
+                    para continuar sobrevivendo.
+                </p>
+
+                <p class="descricao">
+                    Explore cenários detalhados, procure recursos,
+                    resolva situações usando estratégia e enfrente
+                    inimigos em combates intensos. A história coloca
+                    os personagens diante de escolhas difíceis e
+                    mostra como os laços humanos podem mudar em
+                    um mundo completamente diferente.
+                </p>
+
+                <div class="etiquetas">
+                    <span>Um jogador</span>
+                    <span>Sobrevivência</span>
+                    <span>História</span>
+                    <span>Combate</span>
+                    <span>Exploração</span>
+                </div>
+
+                <div class="botoes">
+                    <a
+                        class="botao"
+                        href="https://store.steampowered.com/app/1888930/The_Last_of_Us_Part_I/"
+                        target="_blank"
+                        rel="noopener noreferrer">
+                        ↗ Ver na Steam
+                    </a>
+
+                    <a
+                        class="botao botao-secundario"
+                        href="biblioteca.html">
+                        ← Voltar
+                    </a>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Galeria -->
+        <section class="secao">
+            <h2>Imagens do jogo</h2>
+
+            <div class="galeria">
+
+                <img
+                    src="https://i.pinimg.com/736x/bc/82/1e/bc821e942bc7caa6ce7ba115b6332af8.jpg"
+                    alt="Cena de The Last of Us Part I">
+
+                <img
+                    src="https://i.pinimg.com/1200x/90/a8/60/90a860067a94b2bb8b5294add4ac35c0.jpg"
+                    alt="Joel e Ellie durante a jornada">
+
+                <img
+                    src="https://i.pinimg.com/1200x/05/dc/11/05dc1110e63232d59e6a0d12d0d95713.jpg"
+                    alt="Cenário de The Last of Us Part I">
+
+            </div>
+        </section>
+
+        <!-- Ficha técnica -->
+        <section class="secao">
+            <h2>Detalhes do jogo</h2>
+
+            <div class="ficha">
+
+                <div class="linha">
+                    <span>Desenvolvedora</span>
+                    <span>Naughty Dog / Iron Galaxy Studios (PC)</span>
+                </div>
+
+                <div class="linha">
+                    <span>Distribuidora</span>
+                    <span>PlayStation Publishing LLC</span>
+                </div>
+
+                <div class="linha">
+                    <span>Lançamento para PC</span>
+                    <span>28 de março de 2023</span>
+                </div>
+
+                <div class="linha">
+                    <span>Gêneros</span>
+                    <span>Ação, Aventura, Sobrevivência</span>
+                </div>
+
+                <div class="linha">
+                    <span>Plataformas</span>
+                    <span>PC e PlayStation 5</span>
+                </div>
+
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <p>Abyss Games © 2026</p>
+        <p>Seu universo gamer começa aqui.</p>
+    </footer>
+
+</body>
+</html>
